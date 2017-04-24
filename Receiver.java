@@ -13,7 +13,7 @@ public class Receiver {
 		MulticastSocket multicastSock = new MulticastSocket(4446);
 		multicastSock.joinGroup(group);
 		String msg = new String("");
-		byte[ ] buffer = new byte[100];
+		byte[ ] buffer = new byte[250];
 
 		do {
 			Calendar calendar = GregorianCalendar.getInstance();
@@ -23,7 +23,7 @@ public class Receiver {
 			msg = new String (buffer).trim();
 
 			System.out.println("["+calendar.get(Calendar.HOUR_OF_DAY)+":"+calendar.get(Calendar.MINUTE)+"]\t"+msg);
-			buffer = new byte[100];		//clear the buffer
+			buffer = new byte[250];		//clear the buffer
 
 		} while(msg.equals("Derri: q") == false);
 		 	

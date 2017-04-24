@@ -1,6 +1,8 @@
+import java.io.IOException;
+import java.net.DatagramPacket;
+import java.net.InetAddress;
+import java.net.MulticastSocket;
 import java.util.Scanner;
-import java.io.*;
-import java.net.*;
 
 public class Sender {
 
@@ -22,8 +24,8 @@ public class Sender {
 
 		 } while(msg.equals("Derri: q") == false);
 
-		 DatagramPacket packet = new DatagramPacket(msg.getBytes(), msg.length(), group, 4446);
-				
+		DatagramPacket packet = new DatagramPacket(msg.getBytes(), msg.length(), group, 4446);
+		sc.close();
 		multicastSock.send(packet);
 		multicastSock.close();
 	}
